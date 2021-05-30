@@ -1,7 +1,9 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
@@ -23,9 +25,9 @@
 			<label for="Country"><b>Enter Country</b></label>
 			<p><input type="text" placeholder="Enter Country" name="country"></p>
 			<label for="zip"><b>Enter Zip</b></label>
-			<p><input type="number" placeholder="Enter Zip" name="zip"></p>
+			<p><input type="text" placeholder="Enter Zip" name="zip"></p>
 			<label for="Phone"><b>Enter Phone</b></label>
-			<p><input type="number" placeholder="Enter Phone" name="phone"></p>
+			<p><input type="text" placeholder="Enter Phone" name="phone"></p>
 			<label for="UserLogin ID"><b>Enter UserLogin ID</b></label>
 			<p><input type="text" placeholder="Enter UserLogin ID" name="userloginid" required>*</p>
 			<label for="password"><b>Password</b></label>
