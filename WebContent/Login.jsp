@@ -7,13 +7,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form name="regForm" method = "post" action = "login">
-		<p><label>UserLoginId: <input type="text" id="UserLogin ID" required>*</label></p>
-		<p><label>Password: <input type="password" id="pwd" required>*</label></p>
-		<input type="submit" class="login" value="Log In" onclick="validation()" formtarget="_blank">
-		<div class="container">
-			<p>Don't have an account? <a href="registration.jsp" target="_blank">Sign Up</a>.</p>
-		</div>
-	</form>
+<div align = "center">
+<form name="regForm" method = "post" action = "LoginServlet">
+<table>
+	<tr> <td>UserLoginId: </td><td><input type="text" name="userloginid" required>*</td></tr>
+	<tr> <td>Password: </td><td><input type="password" name="password" required>*</td></tr>
+	<tr> <td></td><td><input type="submit" class="login" value="Login" onclick="validation()" formtarget="_blank"></td></tr>
+</table>
+</form>
+<div class="container">
+	    <p>Don't have an account? <a href="registration.jsp" target="_blank">Sign Up</a>.</p>
+</div>
+</div>
 </body>
 </html>

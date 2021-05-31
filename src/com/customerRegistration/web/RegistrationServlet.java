@@ -1,4 +1,4 @@
-package com.customerRegistration;
+package com.customerRegistration.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,7 +15,10 @@ public class RegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	Connection con;
-	PreparedStatement pst;
+	PreparedStatement ps;
+	PreparedStatement ps2;
+	PreparedStatement ps3;
+	
        
  
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,7 +28,7 @@ public class RegistrationServlet extends HttpServlet {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration","root","Chiranjiv@123");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/customerreg","root","Chiranjiv@123");
 			
 			String firstName = request.getParameter("firstname");
 			String lastName = request.getParameter("lastname");
@@ -35,19 +38,36 @@ public class RegistrationServlet extends HttpServlet {
 			String state = request.getParameter("state");
 			String country = request.getParameter("country");
 			String phone = request.getParameter("phone");
+			String userloginid = request.getParameter("userloginid");
+			String password = request.getParameter("password");
 			
-			pst = con.prepareStatement("insert into party values(?,?,?,?,?,?,?,?)");
+			ps = con.prepareStatement("insert into party(firstname,lastname,address,city,zip,state,country,phone) values(?,?,?,?,?,?,?,?)");
+			ps2=con.prepareStatement("insert into userlogin(partyid,userloginid,password) values(?,?,?)");
 			
-			pst.setString(1, firstName);
-			pst.setString(2, lastName);
-			pst.setString(3, address);
-			pst.setString(4, city);
-			pst.setString(5, zip);
-			pst.setString(6, state);
-			pst.setString(7, country);
-			pst.setString(8, phone);
+			ps.setString(1, firstName);
+			ps.setString(2, lastName);
+			ps.setString(3, address);
+			ps.setString(4, city);
+			ps.setString(5, zip);
+			ps.setString(6, state);
+			ps.setString(7, country);
+			ps.setString(8, phone);
 			
-			pst.executeUpdate();
+			ps.executeUpdate();
+			
+			ps3=con.prepareStatement("select max(partyid) from party");
+			ResultSet rs=ps3.executeQuery();
+			
+			rs.next();
+			
+			int id;
+			id = rs.getInt(1);
+			
+	
+			ps2.setInt(1, id);
+			ps2.setString(2, userloginid);
+			ps2.setString(3, password);
+			ps2.executeUpdate();
 			
 			System.out.println("Thank You");
 			
