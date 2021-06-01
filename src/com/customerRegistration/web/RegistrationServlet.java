@@ -23,8 +23,8 @@ public class RegistrationServlet extends HttpServlet {
  
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
+//		response.setContentType("text/html");
+//		PrintWriter out = response.getWriter();
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -71,19 +71,6 @@ public class RegistrationServlet extends HttpServlet {
 			
 			System.out.println("Thank You");
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -93,8 +80,8 @@ public class RegistrationServlet extends HttpServlet {
 		}
 		
 		
-		
-		
+		response.getWriter().println("Successfully Register");
+		response.sendRedirect("Login.jsp");	
 	}
 
 }

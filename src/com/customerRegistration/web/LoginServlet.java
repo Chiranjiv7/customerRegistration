@@ -11,7 +11,7 @@ import com.customerRegistration.database.Logindao;
 import com.customerRegistration.login.Logindata;
 
 
-@WebServlet("/Login")
+@WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

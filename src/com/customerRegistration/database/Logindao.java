@@ -43,7 +43,7 @@ public class Logindao {
 		loadDriver(Driver);
 		Connection con = getConnection();
 		
-		String sql = "select * from userlogin where userloginid = ? and password =?";
+		String sql = "select * from userlogin where userloginid = ? and password = ?";
 		PreparedStatement ps;
 		try {
 		ps = con.prepareStatement(sql);
