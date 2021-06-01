@@ -41,6 +41,7 @@ e.printStackTrace();
 <td><b>state</b></td>
 <td><b>country</b></td>
 <td><b>phone</b></td>
+<td>update</td>
 </tr>
 <%
 try{ 
@@ -62,6 +63,7 @@ while(rs.next()){
 <td><%=rs.getString("state") %></td>
 <td><%=rs.getString("country") %></td>
 <td><%=rs.getString("phone") %></td>
+<td><a href="update.jsp?partyid=<%=rs.getString("partyid")%>">update</a></td>
 
 </tr>
 
